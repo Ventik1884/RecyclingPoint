@@ -1,0 +1,47 @@
+﻿@using WebApp.ViewModels
+
+@model PageViewModel
+
+@if (Model.PageNumber > 2)
+{
+    <a asp-action="Index"
+   asp-route-page="@(1)"
+   asp-route-pageSize="@Model.PageSize"
+   class="btn btn-outline-dark">
+        &lt;&lt;
+    </a>
+}
+
+@if (Model.PageNumber > 1)
+{
+    <a asp-action="Index"
+   asp-route-page="@(Model.PageNumber - 1)"
+   asp-route-pageSize="@Model.PageSize"
+   class="btn btn-outline-dark">
+        @(Model.PageNumber - 1)
+    </a>
+}
+
+<a class="btn btn-dark">
+    @Model.PageNumber
+</a>
+
+@if (Model.PageNumber < Model.TotalPages)
+{
+    <a asp-action="Index"
+   asp-route-page="@(Model.PageNumber + 1)"
+   asp-route-pageSize="@Model.PageSize"
+   class="btn btn-outline-dark">
+        @(Model.PageNumber + 1)
+    </a>
+}
+
+@if (Model.PageNumber < Model.TotalPages - 1)
+{
+    <a asp-action="Index"
+   asp-route-page="@(Model.TotalPages)"
+   asp-route-pageSize="@Model.PageSize"
+   class="btn btn-outline-dark">
+        >>
+    </a>
+}

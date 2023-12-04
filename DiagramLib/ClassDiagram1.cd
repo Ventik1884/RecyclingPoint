@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WebApp.Models.AcceptedRecyclable" Collapsed="true">
+    <Position X="15.5" Y="2.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.Employee" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.ErrorViewModel" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.Position" Collapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.RecyclableType" Collapsed="true">
+    <Position X="15.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.Storage" Collapsed="true">
+    <Position X="17.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.StorageType" Collapsed="true">
+    <Position X="19" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Data.DbInitializer" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Data.ApplicationDbContext" Collapsed="true">
+    <Position X="12.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Data.DbUserInitializer" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Data.RecPointContext" Collapsed="true">
+    <Position X="10.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Infrastructure.SessionExtensions" Collapsed="true">
+    <Position X="23.25" Y="6" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Middleware.DbInitializerMiddleware" Collapsed="true">
+    <Position X="18.25" Y="7.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Middleware.DbInitializerExtensions" Collapsed="true">
+    <Position X="16" Y="7.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.ViewModels.HomeViewModel" Collapsed="true">
+    <Position X="15.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.ViewModels.IndexViewModel&lt;T&gt;" Collapsed="true">
+    <Position X="17.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.ViewModels.PageViewModel" Collapsed="true">
+    <Position X="19.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.ViewModels.Users.CreateUserViewModel" Collapsed="true">
+    <Position X="15.5" Y="6.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.ViewModels.Users.EditUserViewModel" Collapsed="true">
+    <Position X="19.25" Y="6.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.ViewModels.Users.UserViewModel" Collapsed="true">
+    <Position X="17.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.AcceptedRecyclablesController" Collapsed="true">
+    <Position X="12.25" Y="7" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.EmployeesController" Collapsed="true">
+    <Position X="10.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.HomeController" Collapsed="true">
+    <Position X="12.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.PositionsController" Collapsed="true">
+    <Position X="10.5" Y="5.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.RecyclableTypesController" Collapsed="true">
+    <Position X="12.75" Y="6.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.StoragesController" Collapsed="true">
+    <Position X="12.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Controllers.StorageTypesController" Collapsed="true">
+    <Position X="10.5" Y="6.25" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="FuelStation.Controllers.UsersController" Collapsed="true">
+    <Position X="10.5" Y="7" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.SortStates.SortStateAcceptedRec" Collapsed="true">
+    <Position X="21.25" Y="2.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.SortStates.SortStateEmployee" Collapsed="true">
+    <Position X="21.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.SortStates.SortStatePosition" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.SortStates.SortStateRecyclableType" Collapsed="true">
+    <Position X="21.25" Y="3.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.SortStates.SortStateStorage" Collapsed="true">
+    <Position X="23.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="WebApp.Models.SortStates.SortStateStorageType" Collapsed="true">
+    <Position X="23.25" Y="4.25" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

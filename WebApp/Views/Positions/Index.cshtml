@@ -1,0 +1,65 @@
+﻿@using WebApp.ViewModels
+@model IndexViewModel<Position>
+
+@{
+    ViewData["Title"] = "Список";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список должностей</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-outline-success">
+        Добавить
+    </a>
+</p>
+
+@using (Html.BeginForm("Index", "Positions", FormMethod.Post))
+{
+    <fieldset>
+        Должность:
+        <input type="text" name="searchPosition" value="@ViewData["searchPosition"]?.ToString()" />
+        <input type="submit" value="Найти" class="btn btn-secondary" />
+    </fieldset>
+    <br>
+    <p>
+        <a asp-action="Index"
+       asp-route-resetFilter="@true"
+       asp-route-page="@Model.PageViewModel.PageNumber"
+       asp-route-pageSize="@Model.PageViewModel.PageSize"
+       class="btn btn-warning">
+            Сброс фильтра
+        </a>
+    </p>
+}
+
+@await Html.PartialAsync("_PageButtons", Model.PageViewModel)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Name">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Name)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @await Html.PartialAsync("_EditDetailsDelete", item.Id)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@await Html.PartialAsync("_PageButtons", Model.PageViewModel)

@@ -1,0 +1,99 @@
+﻿@model WebApp.ViewModels.IndexViewModel<AcceptedRecyclable>
+
+@{
+    ViewData["Title"] = "Список";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Принятое вторсырьё</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-outline-success">
+        Добавить
+    </a>
+</p>
+
+@using (Html.BeginForm("Index", "AcceptedRecyclables", FormMethod.Post))
+{
+    <fieldset>
+        Тип вторсырья:
+        <input type="text" name="searchRecTypeAccRec" value="@ViewData["searchRecTypeAccRec"]?.ToString()" />
+        Склад:
+        <input type="text" name="searchStorageAccRec" value="@ViewData["searchStorageAccRec"]?.ToString()" />
+        <input type="submit" value="Найти" class="btn btn-secondary" />
+    </fieldset>
+    <br>
+    <p>
+        <a asp-action="Index"
+       asp-route-resetFilter="@true"
+       asp-route-page="@Model.PageViewModel.PageNumber"
+       asp-route-pageSize="@Model.PageViewModel.PageSize"
+       class="btn btn-warning">
+            Сброс фильтра
+        </a>
+    </p>
+}
+
+@await Html.PartialAsync("_PageButtons", Model.PageViewModel)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Employee">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Employee)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Storage">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Storage)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.RecyclableType">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().RecyclableType)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Quantity">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Quantity)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Date">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Date)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                @(item.Employee.Surname.ToString() + " " 
+                + item.Employee.Name.ToString() + " " 
+                + item.Employee.Patronymic.ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Storage.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecyclableType.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @await Html.PartialAsync("_EditDetailsDelete", item.Id)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@await Html.PartialAsync("_PageButtons", Model.PageViewModel)

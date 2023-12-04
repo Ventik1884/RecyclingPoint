@@ -1,0 +1,107 @@
+﻿@using WebApp.ViewModels
+@model IndexViewModel<Storage>
+
+@{
+    ViewData["Title"] = "Список";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Список складских помещений</h1>
+
+<p>
+    <a asp-action="Create"
+       class="btn btn-outline-success">
+        Добавить
+    </a>
+</p>
+
+@using (Html.BeginForm("Index", "Storages", FormMethod.Post))
+{
+    <fieldset>
+        Название:
+        <input type="text" name="searchNameStorages" value="@ViewData["searchNameStorages"]?.ToString()" />
+        Тип склада:
+        <input type="text" name="searchStorageType" value="@ViewData["searchStorageType"]?.ToString()" />
+        <input type="submit" value="Найти" class="btn btn-secondary" />
+    </fieldset>
+    <br>
+    <p>
+        <a asp-action="Index"
+       asp-route-resetFilter="@true"
+       asp-route-page="@Model.PageViewModel.PageNumber"
+       asp-route-pageSize="@Model.PageViewModel.PageSize"
+       class="btn btn-warning">
+            Сброс фильтра
+        </a>
+    </p>
+}
+
+@await Html.PartialAsync("_PageButtons", Model.PageViewModel)
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Name">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Name)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Occupancy">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Occupancy)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Square">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Square)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.Capacity">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().Capacity)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.StorageType">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().StorageType.Name)
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewBag.CheckDate">
+                    @Html.DisplayNameFor(model => model.Items.FirstOrDefault().CheckDate)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Occupancy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Square)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StorageType.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckDate)
+                </td>
+                <td>
+                    @await Html.PartialAsync("_EditDetailsDelete", item.Id)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@await Html.PartialAsync("_PageButtons", Model.PageViewModel)
